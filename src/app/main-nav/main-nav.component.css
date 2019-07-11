@@ -1,0 +1,66 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.head_toolbar {
+    border-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: white;
+    border-bottom-color: black;
+}
+
+.sidenav {
+    width: 120px;
+    box-shadow: 3pc 0 6px rgba(0, 0, 0, 0.24);
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+
+/* Resource Management title */
+
+.header_parent {
+    position: relative;
+    width: 100%;
+}
+
+.header_title {
+    background-color: #F16621;
+    font-size: 0.5em;
+    color: white;
+    position: absolute;
+    width: 165px;
+    height: 100%;
+    text-align: inherit;
+    display: block;
+}
+
+mat-toolbar a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Project Name */
+
+.spacer {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+@media (min-width: 768px) {
+    .sidenav {
+        display: none;
+    }
+}

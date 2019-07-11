@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item href="#">Resources</a>
+            <a mat-list-item href="#">Projects</a>
+            <a mat-list-item href="#">Formula</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="head_toolbar">
+        <mat-toolbar class="header_parent" color="white">
+
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+                        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                    </button>
+            <span class="header_title">
+                <mat-icon aria-label="Side nav toggle icon">view_agenda</mat-icon>
+                <mat-icon aria-label="Side nav toggle icon">view_agenda</mat-icon>
+                <span>Resource Management</span>
+            </span>
+
+            <!-- dummy element to add space between left and right items -->
+            <span class="spacer">Project</span>
+
+            <span class="user_profile">
+                <mat-icon aria-label="Side nav toggle icon">person_pin</mat-icon>
+                <span>Manager</span>
+            </span>
+
+            <span class="user_profile">
+                <mat-icon aria-label="Side nav toggle icon">help_outline</mat-icon>
+            </span>
+
+        </mat-toolbar>
+        <!-- Add Content Here -->
+        <ng-content></ng-content>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
