@@ -51,22 +51,27 @@ ul {
     width: 85%;
 }
 
-.title-project {
+.title {
     height: inherit;
     align-items: stretch;
 }
 
 .app-title {
     background-color: #F16621;
-    font-size: 0.65em;
+    font-size: 0.75em;
     height: 100%;
     width: fit-content;
     flex: 0 1 auto;
     align-items: baseline;
+    color: white;
+}
+
+.project-title {
+    font-size: 1.5em;
+    font-weight: bolder;
 }
 
 .spacer {
-    font-size: 1.5em;
     display: flex;
     align-items: baseline;
     flex: 1 1 auto;

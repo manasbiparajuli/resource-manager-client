@@ -1,0 +1,24 @@
+<div class="navdrawer-container" [@onNavdrawerChange]="navdrawerState ? 'open' : 'close'" style="background-color: black;">
+    <div fxLayout="column" fxLayoutGap="10px" style="height: 100%;">
+
+        <div>
+            <mat-nav-list>
+                <a mat-list-item *ngFor="let sideMenuItem of sideMenuItems" style="color: white;">
+                    <mat-icon style="padding-right: 2px;">{{sideMenuItem.icon}}</mat-icon>
+                    <span [@animateText]="linkText ? 'show' : 'hide'">
+                        {{ sideMenuItem?.name }}
+                    </span>
+                </a>
+            </mat-nav-list>
+        </div>
+    </div>
+
+    <span class="spacer"></span>
+
+    <div fxLayout="row" fxLayoutAlign="end center" style="padding: 0px 10px;">
+        <button mat-icon-button (click)="onNavdrawerToggle()">
+            <mat-icon *ngIf="navdrawerState">arrow_left</mat-icon>
+            <mat-icon *ngIf="!navdrawerState">arrow_right</mat-icon>
+        </button>
+    </div>
+</div>

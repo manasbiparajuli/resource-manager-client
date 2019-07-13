@@ -3,15 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainNavComponent } from './main-nav/main-nav.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavDrawerComponent } from './components/nav-drawer/nav-drawer.component';
+
+import { NavdrawerService } from './services/navdrawer.service'
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    NavDrawerComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatListModule
   ],
-  providers: [],
+  providers: [ NavdrawerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

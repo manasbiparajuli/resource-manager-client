@@ -1,3 +1,16 @@
-<main-nav>
-    <div>Home Page</div>
-</main-nav>
+<div>
+    <main-nav [sidenav]="sideNavdrawer"></main-nav>
+
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #sideNavdrawer mode="side" opened>
+            <app-nav-drawer></app-nav-drawer>
+        </mat-sidenav>
+        <mat-sidenav-content [@onMainContentChange]="onNavdrawerChange ? 'open': 'close'">
+            <div class="main-content">
+                <div style="padding: 20px">
+                    Content
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
