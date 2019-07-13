@@ -1,0 +1,51 @@
+<mat-sidenav-container>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="white">
+            <div>
+                <button mat-icon-button (click)="sidenav.toggle();">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+
+            <div fxFlex fxLayout fxLayoutAlign="start center" fxFlexAlign="center" class="title">
+                <button mat-flat-button class="app-title">
+                    <mat-icon class="icon">grid_on</mat-icon>
+                    <span fxHide fxShow.gt-sm>Resource Management</span>
+                </button>
+
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="center stretch">
+                <ul>
+                    <li>
+                        <span class="spacer"></span>
+                        <span class="project-title">Project</span>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div fxFlex fxLayout fxLayoutAlign="flex-end">
+                <ul fxLayout fxLayoutGap="20px" class="header-items">
+
+                    <li>
+                        <a>
+                            <mat-icon class="icon">account_circle</mat-icon>
+                            <span fxHide fxShow.gt-sm class="user-role">Cost Manager</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            <mat-icon class="icon">help_outline</mat-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </mat-toolbar>
+
+        <!-- Add content here -->
+        <ng-content></ng-content>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
