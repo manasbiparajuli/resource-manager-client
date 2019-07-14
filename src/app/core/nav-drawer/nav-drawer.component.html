@@ -3,7 +3,7 @@
 
         <div>
             <mat-nav-list>
-                <a mat-list-item *ngFor="let sideMenuItem of sideMenuItems" style="color: white;">
+                <a mat-list-item *ngFor="let sideMenuItem of sideMenuItems" style="color: white;" [routerLink]="sideMenuItem.link">
                     <mat-icon style="padding-right: 2px;">{{sideMenuItem.icon}}</mat-icon>
                     <span [@animateText]="linkText ? 'show' : 'hide'">
                         {{ sideMenuItem?.name }}
@@ -15,7 +15,7 @@
 
     <span class="spacer"></span>
 
-    <div fxLayout="row" fxLayoutAlign="end center" style="padding: 0px 10px;">
+    <div fxLayout="row" fxLayoutAlign="end center" style="padding: 0px 10px; background-color: black; color: white;">
         <button mat-icon-button (click)="onNavdrawerToggle()">
             <mat-icon *ngIf="navdrawerState">arrow_left</mat-icon>
             <mat-icon *ngIf="!navdrawerState">arrow_right</mat-icon>

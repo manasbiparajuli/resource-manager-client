@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { onNavdrawerChange, animateText} from '../../animations/animations';
-import { NavdrawerService } from '../../services/navdrawer.service'; 
+import { onNavdrawerChange, animateText} from '../../shared/animations/animations';
+import { NavdrawerService } from '../services/navdrawer.service'; 
 
 interface SideMenuItems {
     name: string;
@@ -21,9 +21,9 @@ export class NavDrawerComponent implements OnInit {
     public linkText: boolean = false;
 
     public sideMenuItems: SideMenuItems[] = [
-        {name: 'Resources', link: '', icon:'category'},
-        {name: 'Project', link: '', icon:'ballot'},
-        {name: 'Formula', link: '', icon:'table_chart'}
+        {name: 'Resources', link: '/resources', icon:'category'},
+        {name: 'Projects', link: '/projects', icon:'ballot'},
+        {name: 'Formula', link: '/formula', icon:'table_chart'}
     ]
 
     constructor(private _navDrawerService: NavdrawerService) { }

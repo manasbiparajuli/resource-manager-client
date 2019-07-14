@@ -8,7 +8,7 @@
         <mat-sidenav-content [@onMainContentChange]="onNavdrawerChange ? 'open': 'close'">
             <div class="main-content">
                 <div style="padding: 20px">
-                    Content
+                    <router-outlet></router-outlet>
                 </div>
             </div>
         </mat-sidenav-content>
