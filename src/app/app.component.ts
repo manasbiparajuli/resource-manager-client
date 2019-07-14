@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavdrawerService } from './services/navdrawer.service';
-import { onMainContentChange } from './animations/animations';
+import { NavdrawerService } from './core/services/navdrawer.service';
+import { onMainContentChange } from './shared/animations/animations';
 
 @Component({
   selector: 'app-root',
