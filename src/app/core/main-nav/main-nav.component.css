@@ -80,3 +80,8 @@ ul {
 .user-role {
     color: black;
 }
+
+.mat-divider {
+    border-top-width: 3px;
+    border-top-color: black;
+}
