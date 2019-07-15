@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="login-card-div">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form class="login-form">
+                <table>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="Username" name="username" required>
+                            </mat-form-field>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="Password" type="password" name="password" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <mat-checkbox>Remember me</mat-checkbox>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Login</button>
+            <button mat-raised-button color="warn">Sign Up</button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './core/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { CustomMaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavDrawerComponent } from './core/nav-drawer/nav-drawer.component';
 
@@ -15,7 +15,8 @@ import { LoginComponent } from './modules/login/login.component';
 import { ResourcesComponent } from './modules/resources/resources.component';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { FormulaComponent } from './modules/formula/formula.component';
-import { ErrorComponent } from './core/error/error.component'
+import { ErrorComponent } from './core/error/error.component';
+import { RegisterComponent } from './modules/register/register.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ErrorComponent } from './core/error/error.component'
     ResourcesComponent,
     ProjectsComponent,
     FormulaComponent,
-    ErrorComponent
+    ErrorComponent,
+    RegisterComponent
   ],
   imports: [
     AppRoutingModule,
@@ -34,11 +36,7 @@ import { ErrorComponent } from './core/error/error.component'
     BrowserAnimationsModule,
     FlexLayoutModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    CustomMaterialModule
   ],
   providers: [ NavdrawerService ],
   bootstrap: [AppComponent]
