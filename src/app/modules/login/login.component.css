@@ -1,0 +1,23 @@
+.login-card-div {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-title {
+    font-style: italic;
+    color: #eb9021;
+    font-size: 1.9em;
+}
+
+.login-card {
+    box-shadow: 4px 2px black;
+}
+
+
+/* override the default color for when the mat-checkbox is checked */
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: darkcyan !important;
+}

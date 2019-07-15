@@ -1,0 +1,26 @@
+.register-card-div {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-fields {
+    width: 100%;
+}
+
+.register-title {
+    font-style: italic;
+    color: #eb9021;
+    font-size: 1.9em;
+}
+
+.register-card {
+    box-shadow: 4px 2px black;
+}
