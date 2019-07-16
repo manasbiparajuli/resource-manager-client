@@ -22,7 +22,7 @@ const RESOURCE_NAME: string[] = [
   
 export class ResourcesComponent implements OnInit {
 
-    displayedColumns: string[] = ['resCode', 'resName'];
+    displayedColumns: string[] = ['resName', 'resCode'];
     dataSource: MatTableDataSource<ResourceData>;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -30,7 +30,7 @@ export class ResourcesComponent implements OnInit {
 
     constructor() { 
         // create resource names
-        const resNames = Array.from({length: 6}, (_, k)=> createNewResName(k+1));
+        const resNames = Array.from({length: 6}, (_, k)=> createNewResName(k));
 
         // assign the data to the data source for the table to render
         this.dataSource = new MatTableDataSource(resNames);
@@ -49,10 +49,11 @@ export class ResourcesComponent implements OnInit {
         }
     }
 }
-    // builds a new resource name
-    function createNewResName(id: number): ResourceData {
-        return {
-            resCode: RESOURCE_CODE[id],
-            resName: RESOURCE_NAME[id]
-        };
-    }
+
+// builds a new resource name
+function createNewResName(id: number): ResourceData {
+    return {
+        resName: RESOURCE_NAME[id],
+        resCode: RESOURCE_CODE[id]
+    };
+}
