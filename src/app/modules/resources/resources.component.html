@@ -1,1 +1,66 @@
-<p>resources works!</p>
+<div class="resources-card-div">
+    <mat-card class="resources-card">
+        <mat-card-header style="background-color: #b3b9c4;">
+            <div fxFlex fxLayout fxLayoutAlign="start center" fxFlexAlign="center" class="title">
+                <span class="search-option">
+                    <mat-form-field class="search-field">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Keyword">
+                    </mat-form-field>
+                </span>
+            </div>
+
+            <div fxFlex fxLayout="row" fxLayoutAlign="center stretch" fxFlexAlign="center">
+                <span class="resource-catalog-title">Resource Catalog</span>
+            </div>
+
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxFlexAlign="center">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon class="icon">add_box</mat-icon>
+                </button>
+            </div>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                      <mat-icon>format_align_left</mat-icon>
+                      <span>Add Row</span>
+                    </button>
+                <button mat-menu-item>
+                      <span id="add-column">Add Column</span>
+                    </button>
+                <button mat-menu-item>
+                      <span id="import-csv">Import CSV</span>
+                    </button>
+            </mat-menu>
+
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+
+        <!-- Table Contents -->
+
+        <mat-card-content>
+            <div class="mat-elevation-z2">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <!-- Resource Name column -->
+                    <ng-container matColumnDef="resName" sticky>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-name">RESOURCE NAME</th>
+                        <td mat-cell *matCellDef="let row"> {{row.resName}}</td>
+                    </ng-container>
+
+                    <!-- Resource Code column -->
+                    <ng-container matColumnDef="resCode">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="column-name">RESOURCE CODE</th>
+                        <td mat-cell *matCellDef="let row"> {{row.resCode}}</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[4, 10]"></mat-paginator>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
