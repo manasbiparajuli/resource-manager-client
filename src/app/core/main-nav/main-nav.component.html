@@ -26,11 +26,62 @@
 
             <div fxFlex fxLayout fxLayoutAlign="flex-end">
                 <ul fxLayout fxLayoutGap="20px" class="header-items">
-
-                    <li>
+                    <li style="position: relative; overflow: hidden;">
                         <a>
-                            <mat-icon class="icon">account_circle</mat-icon>
-                            <span fxHide fxShow.gt-sm class="user-role">Cost Manager</span>
+
+                            <ng-template #popTemplate>
+                                <div style="width: 100%;">
+                                    <table class="popover-user-details">
+                                        <tr>
+                                            <th colspan="2" style="justify-content: center;">
+                                                <br>
+                                                <div class="user-role">
+                                                    Cost Manager
+                                                </div>
+
+                                                <br>
+                                                <div class="user-join-detail">
+                                                    Member since
+                                                </div>
+
+                                                <br>
+                                                <div class="user-join-detail">
+                                                    November-2015
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </table>
+
+                                    <div style="height: 60px;">
+
+                                        <table class="popover-buttons-table">
+                                            <tr style="background-color: gray;">
+                                                <td>
+                                                    <span id="profile-button-span">
+                                                        <button class="popover-buttons-design" routerLink="/resources">
+                                                            profile
+                                                        </button>          
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <span id="signout-button-span">          
+                                                        <button class="popover-buttons-design" routerLink="/login">
+                                                            sign out
+                                                        </button>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                            <button type="button" mat-flat-button [popover]="popTemplate" [outsideClick]="true" container="body">
+                                <mat-icon class="icon">account_circle</mat-icon>
+                            </button>
+
+                            <span fxHide fxShow.gt-sm class="username">Cost Manager</span>
                         </a>
                     </li>
 
