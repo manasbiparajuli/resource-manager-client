@@ -11,7 +11,7 @@ export class MainNavComponent implements OnInit{
 
     @Input() sidenav: MatSidenav;
     
-    constructor() {}
+    constructor() {};
 
-    ngOnInit() {}
+    ngOnInit() {};
 }

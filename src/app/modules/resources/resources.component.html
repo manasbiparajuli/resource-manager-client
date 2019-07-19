@@ -14,8 +14,23 @@
             </div>
 
             <div fxFlex fxLayout fxLayoutAlign="flex-end" fxFlexAlign="center">
-                <mat-icon class="icon">add_box</mat-icon>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon class="icon">add_box</mat-icon>
+                </button>
             </div>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                      <mat-icon>format_align_left</mat-icon>
+                      <span>Add Row</span>
+                    </button>
+                <button mat-menu-item>
+                      <span id="add-column">Add Column</span>
+                    </button>
+                <button mat-menu-item>
+                      <span id="import-csv">Import CSV</span>
+                    </button>
+            </mat-menu>
 
         </mat-card-header>
 

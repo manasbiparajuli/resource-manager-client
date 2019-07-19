@@ -57,3 +57,11 @@ th {
     justify-content: center;
     font-size: 1.3em;
 }
+
+#add-column::before {
+    content: url('./../../../assets/column-icon.png');
+}
+
+#import-csv::before {
+    content: url('./../../../assets/csv-import-icon.png');
+}

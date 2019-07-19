@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module'; 
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,9 @@ import { ResourcesComponent } from './modules/resources/resources.component';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { FormulaComponent } from './modules/formula/formula.component';
 import { ErrorComponent } from './core/error/error.component';
-import { RegisterComponent } from './modules/register/register.component'
+import { RegisterComponent } from './modules/register/register.component';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { RegisterComponent } from './modules/register/register.component'
     ProjectsComponent,
     FormulaComponent,
     ErrorComponent,
-    RegisterComponent
+    RegisterComponent,
+    SafePipe
   ],
   imports: [
     AppRoutingModule,
@@ -36,7 +40,9 @@ import { RegisterComponent } from './modules/register/register.component'
     BrowserAnimationsModule,
     FlexLayoutModule,
     LayoutModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    NgbPopoverModule,
+    PopoverModule.forRoot()
   ],
   providers: [ NavdrawerService ],
   bootstrap: [AppComponent]
