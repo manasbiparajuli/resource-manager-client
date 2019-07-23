@@ -1,4 +1,4 @@
-import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module'; 
@@ -11,7 +11,7 @@ import { CustomMaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavDrawerComponent } from './core/nav-drawer/nav-drawer.component';
 
-import { NavdrawerService } from './core/services/navdrawer.service';
+import { NavdrawerService } from './core/services';
 import { LoginComponent } from './modules/login/login.component';
 import { ResourcesComponent } from './modules/resources/resources.component';
 import { ProjectsComponent } from './modules/projects/projects.component';
@@ -19,7 +19,12 @@ import { FormulaComponent } from './modules/formula/formula.component';
 import { ErrorComponent } from './core/error/error.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { PopoverModule } from 'ngx-bootstrap/popover';
-import { SafePipe } from './safe.pipe';
+import { SafePipe } from './shared/pipes/safe.pipe';
+import { backendProvider } from './core/authentication';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,9 +47,16 @@ import { SafePipe } from './safe.pipe';
     LayoutModule,
     CustomMaterialModule,
     NgbPopoverModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     PopoverModule.forRoot()
   ],
-  providers: [ NavdrawerService ],
+  providers: [ 
+      NavdrawerService, 
+      backendProvider,
+      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
