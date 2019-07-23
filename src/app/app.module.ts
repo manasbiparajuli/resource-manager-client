@@ -22,7 +22,9 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
 import { SafePipe } from './shared/pipes/safe.pipe';
 import { backendProvider } from './core/authentication';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     PopoverModule.forRoot()
   ],
-  providers: [ NavdrawerService, backendProvider ],
+  providers: [ 
+      NavdrawerService, 
+      backendProvider,
+      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
