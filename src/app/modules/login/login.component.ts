@@ -43,8 +43,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
+            username: ['', Validators.required, Validators.minLength(6)],
+            password: ['', Validators.required, Validators.minLength(6)]
         });
 
         // get return url from route parameters or default to '/'
@@ -83,17 +83,6 @@ export class LoginComponent implements OnInit {
                 }
             );
     }
-
-    // form controls for user inputs
-    usernameFormControl = new FormControl('', [
-        Validators.required,
-        Validators.minLength(6)
-    ]);
-
-    passwordFormControl = new FormControl('', [
-        Validators.required,
-        Validators.minLength(6)
-    ]);
 
     matcher = new CustomErrorStateMatcher();
 }

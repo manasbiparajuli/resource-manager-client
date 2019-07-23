@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 
 @Injectable ({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<any>;
-    public currentUser: Observable<any>;
+    private authenticatedUserSubject: BehaviorSubject<any>;
+    public authenticatedUser: Observable<any>;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
+        this.authenticatedUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+        this.authenticatedUser = this.authenticatedUserSubject.asObservable();
     }
 
     public get currentUserValue() {
-        return this.currentUserSubject.value;
+        return this.authenticatedUserSubject.value;
     }
 
     login (username: any, password: any) {
@@ -23,8 +23,14 @@ export class AuthenticationService {
             // store user details and jwt token in local storage to keep user logged
             // in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
+            this.authenticatedUserSubject.next(user);
             return user; 
         }));
+    }
+
+    logout() {
+        // remove user from local storage and set current user to null
+        localStorage.removeItem('currentUser');
+        this.authenticatedUserSubject.next(null);
     }
 }
