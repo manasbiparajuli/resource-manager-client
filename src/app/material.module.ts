@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, MatFormFieldModule, MatFormFieldControl, MatInputModule, MatCheckboxModule, MatDividerModule, MatPaginatorModule, MatTableModule, MatProgressSpinnerModule, MatSortModule, MatMenuModule, MatMenuTrigger } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatPaginatorModule, MatTableModule, MatProgressSpinnerModule, MatSortModule, MatMenuModule } from '@angular/material';
 
 @NgModule({
     imports: [
@@ -39,4 +38,3 @@ import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, Mat
     ],
 })
 export class CustomMaterialModule {}
-
