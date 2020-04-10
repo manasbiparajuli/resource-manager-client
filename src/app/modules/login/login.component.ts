@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
 
         this.loading = true;
         this.authenticationService.login(this.formFields.username.value, 
-            this.formFields.password.value).pipe().subscribe(
+            this.formFields.password.value).pipe(first()).subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
                 },

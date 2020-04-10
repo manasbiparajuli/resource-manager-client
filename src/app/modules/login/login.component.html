@@ -46,12 +46,16 @@
                         </td>
                     </tr>
                 </table>
+
+                <mat-card-actions style="display: flex; justify-content:space-evenly;">
+                    <button mat-raised-button color="primary" [disabled]="loading" (click)="onSubmit()">Login</button>
+                    <a mat-raised-button color="warn" routerLink="/register">Sign Up</a>
+                </mat-card-actions>
+
+
+
             </form>
         </mat-card-content>
 
-        <mat-card-actions style="display: flex; justify-content:space-evenly;">
-            <a mat-raised-button color="primary" [disabled]="loading">Login</a>
-            <a mat-raised-button color="warn" routerLink="/register">Sign Up</a>
-        </mat-card-actions>
     </mat-card>
 </div>
